@@ -2,6 +2,7 @@ package com.example.hello.repository;
 
 import com.example.hello.domain.Member;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -16,6 +17,13 @@ public class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
+    // @AfterEach: 각각의 실행후에 수행하는 메소드
+    @AfterEach
+    public void afterEach() {
+        repository.clearStore();
+        // 각각의 @Test들이 수행된 후 저장된 데이터들을 지워준다.
+        // 발생하던 오류가 발생하지 않게 된다.
+    }
 
     @Test
     public void save() {
