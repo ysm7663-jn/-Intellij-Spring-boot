@@ -1,9 +1,13 @@
 package com.example.hello.repository;
 
 import com.example.hello.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
+// Autowired를 위해 작성
+// data를 저장
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
