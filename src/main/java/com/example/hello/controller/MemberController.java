@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
+// @Component (Controller안에 포함돼있음)
 public class MemberController {
 
     private final MemberService memberService;
