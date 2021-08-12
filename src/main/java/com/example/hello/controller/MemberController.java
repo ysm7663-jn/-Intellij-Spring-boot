@@ -11,7 +11,11 @@ import org.springframework.stereotype.Controller;
 // spring이 관리함
 // @Component (Controller안에 포함돼있음)
 public class MemberController {
+    // 2. 필드 주입
+    // @Autowired private MemberService memberService;
 
+    // 1. 생성자 주입 (권장)
+    // : 의존관계가 실행중에 동적으로 변하는 경우는 거의 없기 때문
     private final MemberService memberService;
 
     @Autowired
@@ -23,4 +27,15 @@ public class MemberController {
     }
     // @Service나 @Repository가 없는 경우
     // SpringConfig에 있는 @Bean을 참조하여 찾아간다.
+
+
+    // 3. setter 주입
+    // 단점 : 중간에 변경이 있을 경우 큰 문제 발생
+    // private MemberService memberService;
+
+    // @Autowired
+    // public void setMemberService(MemberService memberService) {
+    //      this.memberService = memberService;
+    //  }
+
 }
