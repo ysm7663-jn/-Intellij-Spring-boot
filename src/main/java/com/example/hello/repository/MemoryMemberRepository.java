@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+// @Repository
 // Autowired를 위해 작성
 // data를 저장
 // @Component (Repository안에 포함돼있음)

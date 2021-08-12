@@ -5,7 +5,10 @@ import com.example.hello.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+// MemberController -> MemberService -> MemberRepository
+
 @Controller
+// spring이 관리함
 // @Component (Controller안에 포함돼있음)
 public class MemberController {
 
@@ -18,4 +21,6 @@ public class MemberController {
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
+    // @Service나 @Repository가 없는 경우
+    // SpringConfig에 있는 @Bean을 참조하여 찾아간다.
 }

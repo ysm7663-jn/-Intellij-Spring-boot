@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+// @Service
 // @Autowired를 사용하기 위해서 작성
 // springcontainer에 memberService를 넣어놓는다
 // @Component (Service안에 포함돼있음)
