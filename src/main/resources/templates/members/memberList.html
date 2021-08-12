@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                </tr>
+            </thead>
+            <!-- thymeleaf의 기능 -->
+            <!--
+                <tr th:each> : loop를 돌음
+                ${members} : model 안에 들어있는 값을 꺼내옴
+            -->
+            <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${member.id}"></td>
+                    <td th:text="${member.name}"></td>
+                </tr>
+            </tbody>
+
+            <tfoof>
+                <a href="/">첫 화면으로 이동</a>
+            </tfoof>
+
+        </table>
+    </div>
+
+</div>  <!-- /container -->
+
+</body>
+</html>
