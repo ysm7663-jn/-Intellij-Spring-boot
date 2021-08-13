@@ -52,9 +52,7 @@ public class MemberController {
     public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
-
         memberService.join(member);
-
         return "redirect:/";
     }
 
