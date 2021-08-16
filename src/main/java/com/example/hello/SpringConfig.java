@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 // ∴ spring bean에 등록된 것만이 @Autowired가 적용된다.
 @Configuration
 public class SpringConfig {
-
     // 스프링 빈에 @Bean을 등록
     @Bean
     public MemberService memberService() {
