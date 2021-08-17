@@ -22,6 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MemberServiceIntegrationTest {
 
+    // 단위 테스트(컨테이너 사용x)가 중요함
+    // 통합 테스트 <<<< 단위 테스트
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
