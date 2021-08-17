@@ -121,7 +121,6 @@ public class JdbcMemberRepository implements MemberRepository {
     }
 
     private Connection getConnection() {
-
         return DataSourceUtils.getConnection(dataSource);
     }
 
