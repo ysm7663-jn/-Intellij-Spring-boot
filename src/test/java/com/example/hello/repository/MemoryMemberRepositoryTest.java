@@ -16,7 +16,6 @@ public class MemoryMemberRepositoryTest {
     // 따라서, 테스트 하나 수행후에는 데이터를 정리해줘야 한다.
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
-
     // @AfterEach: 각각의 실행후에 수행하는 메소드
     @AfterEach
     public void afterEach() {
