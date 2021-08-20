@@ -24,7 +24,6 @@ public class SpringConfig {
         this.em = em;
     }
     /*
-
     jpa 사용시 필요 없음
     private DataSource dataSource;
 
@@ -34,7 +33,6 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
     */
-
 
     // 스프링 빈에 @Bean을 등록
     @Bean
