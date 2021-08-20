@@ -5,6 +5,7 @@ import com.example.hello.repository.MemberRepository;
 import com.example.hello.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,9 @@ import java.util.Optional;
 // @Autowired를 사용하기 위해서 작성
 // springcontainer에 memberService를 넣어놓는다
 // @Component (Service안에 포함돼있음)
+
+// jpa 사용시 꼭 필요
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;

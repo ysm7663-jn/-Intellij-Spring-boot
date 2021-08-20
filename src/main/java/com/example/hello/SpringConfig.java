@@ -1,14 +1,12 @@
 package com.example.hello;
 
-import com.example.hello.repository.JdbcMemberRepository;
-import com.example.hello.repository.JdbcTemplateMemberRepository;
-import com.example.hello.repository.MemberRepository;
-import com.example.hello.repository.MemoryMemberRepository;
+import com.example.hello.repository.*;
 import com.example.hello.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
 
@@ -20,6 +18,14 @@ import javax.xml.crypto.Data;
 @Configuration
 public class SpringConfig {
 
+    private EntityManager em;
+
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
+    /*
+
+    jpa 사용시 필요 없음
     private DataSource dataSource;
 
     // spring bean이 application.properties에서 설정을 확인하고 직접 생성해줌
@@ -27,6 +33,8 @@ public class SpringConfig {
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+    */
+
 
     // 스프링 빈에 @Bean을 등록
     @Bean
@@ -39,11 +47,13 @@ public class SpringConfig {
         // JDBC 사용전
         // return new MemoryMemberRepository();
 
-        // 확장 Jdbc 사용
+        // 확장 Jdbc 사요
         // return new JdbcMemberRepository(dataSource);
 
         // JdbcTemplate 사용
-        return new JdbcTemplateMemberRepository(dataSource);
+        // return new JdbcTemplateMemberRepository(dataSource);
+
+        return new JpaMemberRepository(em);
     }
 
 

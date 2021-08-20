@@ -1,8 +1,16 @@
 package com.example.hello.domain;
 
+import javax.persistence.*;
+
+// @Entity @Id @GeneratedValue는 Jpa 사용시 작성
+
+@Entity
 public class Member {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // @Column(name = "username")
     private String name;
 
     public Long getId() {
