@@ -1,6 +1,7 @@
 package com.example.hello;
 
 import com.example.hello.repository.JdbcMemberRepository;
+import com.example.hello.repository.JdbcTemplateMemberRepository;
 import com.example.hello.repository.MemberRepository;
 import com.example.hello.repository.MemoryMemberRepository;
 import com.example.hello.service.MemberService;
@@ -38,8 +39,12 @@ public class SpringConfig {
         // JDBC 사용전
         // return new MemoryMemberRepository();
 
-        // 확장
-        return new JdbcMemberRepository(dataSource);
+        // 확장 Jdbc 사용
+        // return new JdbcMemberRepository(dataSource);
+
+        // JdbcTemplate 사용
+        return new JdbcTemplateMemberRepository(dataSource);
     }
+
 
 }
