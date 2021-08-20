@@ -24,14 +24,14 @@ public class SpringConfig {
         this.em = em;
     }
     /*
-    jpa 사용시 필요 없음
-    private DataSource dataSource;
+        jpa 사용시 필요 없음
+        private DataSource dataSource;
 
-    // spring bean이 application.properties에서 설정을 확인하고 직접 생성해줌
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+        // spring bean이 application.properties에서 설정을 확인하고 직접 생성해줌
+        @Autowired
+        public SpringConfig(DataSource dataSource) {
+            this.dataSource = dataSource;
+        }
     */
 
     // 스프링 빈에 @Bean을 등록
