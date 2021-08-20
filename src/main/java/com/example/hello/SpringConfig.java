@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
-import javax.xml.crypto.Data;
-
 // spring bean: 상황에 따라 구현 클래스를 변경해야 하는 경우 유리
 
 // spring에 관리되지 않는 것은 @Autowired가 작동하지 않는다.
@@ -18,13 +14,24 @@ import javax.xml.crypto.Data;
 @Configuration
 public class SpringConfig {
 
-    private EntityManager em;
+    // SpringJpa 사용
+    private final MemberRepository memberRepository;
 
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
+
     /*
-        jpa 사용시 필요 없음
+        jpa 사용
+        private EntityManager em;
+
+        public SpringConfig(EntityManager em) {
+            this.em = em;
+        }
+     */
+    /*
+        JdbcTemplate까지 사용
         private DataSource dataSource;
 
         // spring bean이 application.properties에서 설정을 확인하고 직접 생성해줌
@@ -37,9 +44,11 @@ public class SpringConfig {
     // 스프링 빈에 @Bean을 등록
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        // return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
+    /*
     @Bean
     public MemberRepository memberRepository() {
         // JDBC 사용전
@@ -51,8 +60,9 @@ public class SpringConfig {
         // JdbcTemplate 사용
         // return new JdbcTemplateMemberRepository(dataSource);
 
-        return new JpaMemberRepository(em);
+        // jpa 사용
+        // return new JpaMemberRepository(em);
     }
-
+    */
 
 }
